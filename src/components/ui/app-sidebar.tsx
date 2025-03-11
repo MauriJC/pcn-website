@@ -3,8 +3,6 @@
 import * as React from 'react';
 import {
   BookOpen,
-  Command,
-  Home,
   Instagram,
   Laptop,
   LifeBuoy,
@@ -14,6 +12,7 @@ import {
   Youtube,
   Calendar,
   Image,
+  Home,
 } from 'lucide-react';
 
 import { NavMain } from '@/components/ui/nav-main';
@@ -35,7 +34,7 @@ const data = {
   navMain: [
     {
       title: 'Inicio',
-      url: '/home',
+      url: '/',
       icon: Home,
     },
     {
@@ -141,7 +140,7 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg bg-black p-1">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-black p-1 text-sidebar-primary-foreground">
                   <img src="/logo.png" alt="programaConNosotros" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
@@ -155,7 +154,7 @@ export function AppSidebar({ user, ...props }: AppSidebarProps) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects socialNetworks={data.socialNetworks} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user} />

@@ -36,13 +36,15 @@ const Home = async () => {
   }
 
   return (
-    <div className="mt-4 md:px-20">
+    <div className="mt-4 md:max-w-screen-xl md:px-20">
       <div className="mb-6 flex flex-col">
         <Heading2>
           {session?.user?.name ? `Hola ${session.user.name.split(' ')[0]}!` : 'Hola!'}
         </Heading2>
 
-        <MotivationalQuotes />
+        <div className="hidden md:block">
+          <MotivationalQuotes />
+        </div>
       </div>
 
       <section className="mb-6 w-full">
@@ -54,16 +56,8 @@ const Home = async () => {
         </div>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <UpcomingEventsSection />
-          <MainSponsorCard />
-        </div>
-
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="flex flex-col gap-6 xl:flex-row">
-            <BackgroundOverlayCard
-              title="¿Sabías que podés sumarte al team de desarrollo de este website?"
-              description="Avisanos por Discord!"
-            />
+          <div className="flex flex-col gap-6">
+            <UpcomingEventsSection />
 
             <Link href="/posts/pcn-story">
               <ContentCard
@@ -71,13 +65,19 @@ const Home = async () => {
                 description="Te cuento por qué decidimos crear la comunidad y todos los pasos que hicimos para llegar a donde estamos hoy."
                 image="/pre-lightning-talks.jpeg"
                 timeToRead="Lectura de 5 minutos"
-                title="Historia de programaConNosotros"
+                title="Nuestra historia"
               />
             </Link>
+
+            <BackgroundOverlayCard
+              title="¿Sabías que podés sumarte al team de desarrollo de este website?"
+              description="¡Comunicate con nosotros!"
+            />
           </div>
 
           <div className="flex flex-col gap-6">
             <DiscordCard />
+            <MainSponsorCard />
             <PodcastCard />
           </div>
         </div>
